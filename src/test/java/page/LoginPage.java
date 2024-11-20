@@ -17,9 +17,22 @@ public class LoginPage {
         return new VerificationPage();
     }
 
+    public VerificationPage invalidLogin(DataHelper.WrongAuthInfo info) {
+        threeLogin(info);
+        return new VerificationPage();
+    }
+
     public void login(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
+        loginButton.click();
+    }
+
+    public void threeLogin(DataHelper.WrongAuthInfo info) {
+        loginField.setValue(info.getLogin());
+        passwordField.setValue(info.getPassword());
+        loginButton.click();
+        loginButton.click();
         loginButton.click();
     }
 }

@@ -14,7 +14,6 @@ public class VerificationPage {
         codeField.shouldBe(visible);
     }
 
-
     public DashboardPage validVerify(String verificationCode) {
         verify(verificationCode);
         return new DashboardPage();
