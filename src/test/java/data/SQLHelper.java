@@ -1,7 +1,9 @@
 package data;
+
 import lombok.SneakyThrows;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

@@ -1,6 +1,8 @@
 package page;
+
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -14,6 +16,7 @@ public class LoginPage {
         login(info);
         return new VerificationPage();
     }
+
     public void login(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());

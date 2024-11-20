@@ -1,6 +1,8 @@
 package data;
+
 import com.github.javafaker.Faker;
 import lombok.Value;
+
 import java.util.Locale;
 
 public class DataHelper {
