@@ -3,6 +3,8 @@ package page;
 import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -12,13 +14,14 @@ public class LoginPage {
 
     private final SelenideElement loginButton = $("[data-test-id=action-login]");
 
-    public VerificationPage validLogin(DataHelper.AuthInfo info) {
-        login(info);
-        return new VerificationPage();
+    private final SelenideElement errorMessage = $("[data-test-id=error-notification]");
+
+    public void badLogin() {
+        errorMessage.shouldHave(text("Вы ввели пароль неверно 3 раза, система заблокирована")).shouldBe(visible);
     }
 
-    public VerificationPage invalidLogin(DataHelper.WrongAuthInfo info) {
-        threeLogin(info);
+    public VerificationPage validLogin(DataHelper.AuthInfo info) {
+        login(info);
         return new VerificationPage();
     }
 
